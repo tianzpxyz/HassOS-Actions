@@ -10,6 +10,6 @@
     "deprecated-key-path": "/mnt/overlay/etc/docker/key.json",
     "bip": "172.30.232.1/23",
     "registry-mirrors": [
-	"https://dhub.so169.com"
+	"https://docker.1ms.run"
     ]
 }
