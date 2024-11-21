@@ -70,7 +70,7 @@ jobs:
         df -hT $PWD
         #dpkg-query -W --showformat='${Installed-Size} ${Package} ${Status}\n'|grep -v deinstall|sort -n|awk '{print $1" "$2}'
         git clone https://github.com/home-assistant/operating-system.git -b main HassOS
-        #git clone -b main https://github.com/5high/operating-system.git -b dev HassOS
+        #git clone -b main https://github.com/tianzpxyz/operating-system.git -b dev HassOS
  
     - name: Change Settings.
       run: |
@@ -121,7 +121,7 @@ jobs:
         sed -i '/\[Service\]/a RestartSec=10' buildroot/package/nginx/nginx.service
         sed -i '/\[Service\]/a Restart=always' buildroot/package/nginx/nginx.service
         sed -i '/After=syslog.target network.target/ s/$/ hassos-supervisor.service/' buildroot/package/nginx/nginx.service
-        sed -i '/cd \$(TARGET_DIR) ;\\/i \ \ \ \ wget -O \$(TARGET_DIR)\/usr\/share\/ca-certificates\/itcommander.crt https:\/\/github.com\/5high\/HassOS-Actions\/raw\/main\/rootfs-overlay\/etc\/ssl\/certs\/rootCA.cer' buildroot/package/ca-certificates/ca-certificates.mk   
+        sed -i '/cd \$(TARGET_DIR) ;\\/i \ \ \ \ wget -O \$(TARGET_DIR)\/usr\/share\/ca-certificates\/itcommander.crt https:\/\/github.com\/tianzpxyz\/HassOS-Actions\/raw\/main\/rootfs-overlay\/etc\/ssl\/certs\/rootCA.cer' buildroot/package/ca-certificates/ca-certificates.mk   
         
     - name: SSH connection to Actions
       uses: P3TERX/ssh2actions@v1.0.0
@@ -172,7 +172,7 @@ jobs:
         node-version: '20'
 
     - name: Delete workflow runs
-      uses: 5high/delete-workflow-runs@main
+      uses: tianzpxyz/delete-workflow-runs@main
       with:
         retain_days: 1
         keep_minimum_runs: 1
